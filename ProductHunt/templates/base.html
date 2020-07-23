@@ -1,0 +1,31 @@
+<ul>
+    <li>
+        <a href="{% url 'products:home' %}">home</a>
+    </li>
+
+    
+    {% if user.is_authenticated %}
+
+    <li>
+        <a href="javascript:{document.getElementById('signout').submit()}">sign out</a>
+    </li>
+    <form id="signout" method="POST" action="{% url 'users:signout' %}">
+        {% csrf_token %}
+        <input type="hidden" name=""/>
+    </form>
+
+    {% else %}
+
+    <li>
+        <a href="{% url 'users:signin' %}">sign in</a>
+    </li>
+    <li>
+        <a href="{% url 'users:signup' %}">sign up</a>
+    </li>
+        
+    {% endif %}
+    
+</ul>
+
+{% block content %}
+{% endblock content %}
