@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if error %}
+        {{ error }}
+    {% endif %}
+
+Create
+
+    <form action="{% url 'products:create' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        Title:  <input type="text" name="title">
+
+        Body:   <input type="textbox" name="body">
+
+        URL:   <input type="text" name="url">
+
+        icon:   <input type="file" name="icon">
+
+        image:   <input type="file" name="image">
+
+        <input type="submit" value="Add product">
+
+    </form>
+
+{% endblock content %}

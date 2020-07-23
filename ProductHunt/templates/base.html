@@ -6,6 +6,9 @@
     
     {% if user.is_authenticated %}
 
+    <li><!--TODO - Replace with some plus icon from my iconic static file when Bootstrap'in-->
+        <a href="{% url 'products:create' %}">Create</a>
+    </li>
     <li>
         <a href="javascript:{document.getElementById('signout').submit()}">sign out</a>
     </li>
